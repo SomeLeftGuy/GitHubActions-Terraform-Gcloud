@@ -1,0 +1,9 @@
+server {
+    location / {
+        proxy_pass http://loadbalancer; 
+    }
+}
+upstream loadbalancer {
+    server balancernode-service:3000 weight=6;
+    
+}
