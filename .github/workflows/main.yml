@@ -42,7 +42,7 @@ jobs:
 
       
     - name: build the balancer image
-      run: docker build . --file balancerapp/Dockerfile --tage europe-central2-docker.pkg.dev/artful-patrol-313709/testrepo/balancer:latest
+      run: docker build . --file balancerapp/Dockerfile --tag europe-central2-docker.pkg.dev/artful-patrol-313709/testrepo/balancer:latest
   
     - name: Push the balancer image
       run: docker push europe-central2-docker.pkg.dev/artful-patrol-313709/testrepo/balancer:latest
