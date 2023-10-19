@@ -60,8 +60,8 @@ jobs:
     - name: Applying changes
       run: terraform apply --auto-approve -input=false 
       env:
-       TF_VAR_AUTH_TOKEN: $(gcloud auth print-access-token)
-       GOOGLE_CREDENTIALS: $secrets.GOOGLE_AUTH
+       TF_VAR_AUTH_TOKEN: $secrets.GOOGLE_AUTH
+      # GOOGLE_CREDENTIALS: 
 
       
      
