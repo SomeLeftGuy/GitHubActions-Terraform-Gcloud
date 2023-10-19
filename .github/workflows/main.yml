@@ -17,10 +17,12 @@ jobs:
       with:
         credentials_json: '${{secrets.GOOGLE_AUTH}}'
         #token_format: "access_token"
+        create_credentials_file: true
         
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
-      
+    - name: блядский аксесс токен
+      run: gcloud auth print-access-token
     - name: 'Authenticate Docker and Gcloud'
       run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://europe-central2-docker.pkg.dev
 
@@ -57,8 +59,7 @@ jobs:
     - name: the fuck u think is that? (initializing terraform)
       run: terraform init
     # my brother in crist, wtf is going on here
-    - name: блядский аксесс токен
-      run: gcloud auth print-access-token
+
     - name: Applying changes
       run: terraform apply --auto-approve -input=false 
       env:
