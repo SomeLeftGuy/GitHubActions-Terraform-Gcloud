@@ -53,8 +53,9 @@ jobs:
     - uses: hashicorp/setup-terraform@v2
     # - name: copy file from bucket
     #   run: gcloud storage cp gs://artful-patrol-313709-terraform-bucket/main.tf main.tf
-    - name: the fuck u think is that?
+    - name: the fuck u think is that? (initializing terraform)
       run: terraform init
+    # my brother in crist, wtf is going on here
     - name: Applying changes
       run: terraform apply --auto-approve -var AUTH_TOKEN=$(gcloud auth print-access-token)
      
