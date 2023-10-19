@@ -16,13 +16,13 @@ jobs:
       uses: 'google-github-actions/auth@v1'
       with:
         credentials_json: '${{secrets.GOOGLE_AUTH}}'
-        token_format: "access_token"
+        #token_format: "access_token"
         
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
       
     - name: 'Authenticate Docker and Gcloud'
-      run: echo '${{steps.auth.outputs.access_token}}' | docker login -u oauth2accesstoken --password-stdin https://europe-central2-docker.pkg.dev
+      run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://europe-central2-docker.pkg.dev
 
  # build_and_push_image:
  #  runs-on: ubuntu-latest
@@ -60,7 +60,8 @@ jobs:
     - name: Applying changes
       run: terraform apply --auto-approve -input=false 
       env:
-       TF_VAR_AUTH_TOKEN: '${{steps.auth.oputputs.access_token}}'
+       TF_VAR_AUTH_TOKEN: $(gcloud auth print-access-token)
+       GOOGLE_CREDENTIALS: $secrets.GOOGLE_AUTH
 
       
      
