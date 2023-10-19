@@ -30,7 +30,7 @@ jobs:
     - uses: actions/checkout@v3
   
     - name: Build the web-counter image
-      run: docker build . --file HelloWorld/Dockerfile --tag europe-central2-docker.pkg.dev/artful-patrol-313709/testrepo/web-counter:latest
+      run: docker build . --file https://hub.docker.com/r/thestrider/helloworld/ --tag europe-central2-docker.pkg.dev/artful-patrol-313709/testrepo/web-counter:latest
    
     - name: Push the web-counter image
       run: docker push europe-central2-docker.pkg.dev/artful-patrol-313709/testrepo/web-counter:latest
