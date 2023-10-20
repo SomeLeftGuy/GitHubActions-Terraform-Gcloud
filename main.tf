@@ -23,7 +23,7 @@ provider "kubernetes" {
     #token = data.google_client_config.google_provider.access_token
     exec {
       api_version = "client.authentication.k8s.io/v1"
-      args        = ["container", "clusters", "get-credentials", "terraformcluster"]
+      args        = ["container", "clusters", "get-credentials", "terraformcluster", "--location", "europe-central2"]
       command     = "gcloud"
 }
     client_certificate = base64decode(
