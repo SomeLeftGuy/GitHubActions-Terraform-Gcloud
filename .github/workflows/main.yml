@@ -63,7 +63,9 @@ jobs:
     # my brother in crist, wtf is going on here
 
     - name: Applying changes
-      run: terraform apply --auto-approve -input=false -var AUTH_TOKEN="$ACCESS_TOKEN"
+      run: terraform apply --auto-approve -input=false -var AUTH_TOKEN=$ACCESS_TOKEN
+      env:
+        ACCESS_TOKEN: $(gcloud auth print-access-token)
 
       
      
