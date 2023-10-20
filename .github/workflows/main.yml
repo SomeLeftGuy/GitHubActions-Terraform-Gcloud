@@ -21,8 +21,10 @@ jobs:
         
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
+    
     - name: 'Setting access token'
       run: "{ACCESS_TOKEN}= {$(gcloud auth print-access-token)}" >> "$GITHUB_ENV"
+
     - name: 'Authenticate Docker and Gcloud'
       run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://europe-central2-docker.pkg.dev
 
