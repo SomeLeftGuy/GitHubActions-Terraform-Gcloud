@@ -61,7 +61,8 @@ jobs:
     - name: the fuck u think is that? (initializing terraform)
       run: terraform init
     # my brother in crist, wtf is going on here
-
+    - name: terraform refresh
+      run: terraform refresh
     - name: Applying changes
       run: terraform apply --auto-approve -input=false -var AUTH_TOKEN="$ACCESS_TOKEN"
   
