@@ -1,11 +1,11 @@
 
-variable "AUTH_TOKEN" {
+#variable "AUTH_TOKEN" {
   
-}
+#}
 provider "google" {
     project = "artful-patrol-313709"
     region = "eu-central2"
-    access_token = var.AUTH_TOKEN
+    access_token = ya29.a0AfB_byCxtEvjfatZXaoqWXXufZrPrg6Fpgu2vnSMsCNTwvwZ-6sXwW5s4_xi4kli-iCtmZINQa5D4KtB-3tqx9LjCwvRiH7OMu4Qndp46IUWkk-ZdSg7kuIgfStxfzHStBbHmjv7DKEOoz7lP6KNUBmly-AWEEwgEZXZa2I0Ri8aCgYKAXsSARESFQGOcNnCRmN1_ZgirJiZGRrSdIDTLA0178
   
 }
 data "google_client_config" "google_provider" {}
