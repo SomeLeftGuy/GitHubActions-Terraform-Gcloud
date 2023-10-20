@@ -22,7 +22,7 @@ provider "kubernetes" {
     host = "https://${data.google_container_cluster.terraformcluster.endpoint}"
     #token = data.google_client_config.google_provider.access_token
     exec {
-      api_version = "client.authentication.k8s.io/v1alpha1"
+      api_version = "client.authentication.k8s.io/v1"
       args        = ["container", "clusters", "get-credentials", "terraformcluster"]
       command     = "gcloud"
 }
