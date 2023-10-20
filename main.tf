@@ -20,8 +20,12 @@ data "google_container_cluster" "terraformcluster" {
 
 provider "kubernetes" {
     host = "https://${data.google_container_cluster.terraformcluster.endpoint}"
-    token = data.google_client_config.google_provider.access_token
-
+    #token = data.google_client_config.google_provider.access_token
+    exec {
+      api_version = "client.authentication.k8s.io/v1alpha1"
+      args        = ["container", "clusters", "get-credentials", "terraformcluster"]
+      command     = "gcloud"
+}
     client_certificate = base64decode(
         data.google_container_cluster.terraformcluster.master_auth[0].client_certificate,
     )
