@@ -21,6 +21,7 @@ data "google_container_cluster" "terraformcluster" {
 provider "kubernetes" {
     host = "https://${data.google_container_cluster.terraformcluster.endpoint}"
     #token = data.google_client_config.google_provider.access_token
+    config_path    = "~/.kube/config"
     config_context =  "gke_artful-patrol-313709_europe-central2_terraformcluster"
     config_context_cluster = "gke_artful-patrol-313709_europe-central2_terraformcluster"
     exec {
