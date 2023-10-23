@@ -27,6 +27,7 @@ jobs:
     - name: 'Getting kubectl credentials'
       run: gcloud container clusters get-credentials terraformcluster --location europe-central2
 
+
     - name: 'Authenticate Docker and Gcloud'
       run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://europe-central2-docker.pkg.dev
 
