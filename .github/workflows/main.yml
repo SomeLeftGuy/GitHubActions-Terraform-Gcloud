@@ -17,7 +17,7 @@ jobs:
       with:
         credentials_json: '${{secrets.GOOGLE_AUTH}}'
         #token_format: "access_token"
-        create_credentials_file: true
+        create_credentials_file: false
         
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
