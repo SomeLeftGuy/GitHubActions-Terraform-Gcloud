@@ -9,7 +9,7 @@ on:
 jobs:
  configure_gcloud:
     env:
-      USE_GKE_GCLOUD_AUTH_PLUGIN: True
+      USE_GKE_GCLOUD_AUTH_PLUGIN: False
     runs-on: ubuntu-latest
   
     steps:
@@ -28,7 +28,8 @@ jobs:
       run: echo "ACCESS_TOKEN= $(gcloud auth print-access-token)" >> "$GITHUB_ENV"
     - name: 'Installing auth-plugin'
       run: gcloud components install gke-gcloud-auth-plugin
-
+    - name: 'Updating gcloud components'
+      run: gcloud components update
     - name: 'Getting kubectl credentials'
       run: gcloud container clusters get-credentials terraformcluster --location europe-central2
 
