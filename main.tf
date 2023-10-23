@@ -19,12 +19,13 @@ data "google_container_cluster" "terraformcluster" {
 }
 
 provider "kubernetes" {
+    load_config_file       = false
     host = "https://${data.google_container_cluster.terraformcluster.endpoint}"
     #token = data.google_client_config.google_provider.access_token
     config_path    = "~/.kube/config"
     config_context =  "gke_artful-patrol-313709_europe-central2_terraformcluster"
     config_context_cluster = "gke_artful-patrol-313709_europe-central2_terraformcluster"
-    load_config_file = false
+    
     exec {
       api_version = "client.authentication.k8s.io/v1"
       args        = ["container", "clusters", "get-credentials", "terraformcluster", "--location", "europe-central2"]
