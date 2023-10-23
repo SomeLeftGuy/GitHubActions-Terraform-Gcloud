@@ -19,7 +19,7 @@ data "google_container_cluster" "terraformcluster" {
 }
 
 provider "kubernetes" {
-    load_config_file       = false
+    #load_config_file       = false
     host = "https://${data.google_container_cluster.terraformcluster.endpoint}"
     #token = data.google_client_config.google_provider.access_token
     config_path    = "~/.kube/config"
